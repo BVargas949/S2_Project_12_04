@@ -24,6 +24,33 @@
       
 */
 
+var reportHTML = "<h1>" + raceTitle + "</h1>";
+
+var totalVotes = 0;
+
+for (var i = 0; i < race.length; i++) {
+    var totalVotes = 0;
+    votes[i].forEach(calcSum);
+    reportHTML += "<table><caption>" + race[i] + "</caption><tr><th>" + candidate[i] + "</th><th>" + votes[i] + "</th><tr>";
+    candidateRows(i, totalVotes);
+    reportHTML += candidateRows() + "</table>";
+};
+document.getElementsByTagName("section")[0].innerHTML = reportHTML;
+
+function candidateRows(raceNum, totalVotes) {
+    var rowHTML = "";
+    for (var j = 0; j <= 2; j++) {
+        var candidateName = candidate[raceNum[j]];
+        var candidateParty = party[raceNum[j]];
+        var candidateVotes = votes[raceNum[j]];
+        var candidatePercent = calcPercent(candidateVotes, totalVotes);
+        rowHTML += "<tr><td>" + candidateName[j] + "(" + candidateParty[j] + ")</td> <td>" + candidateVotes[j] + "(" + candidatePercent[j] + ") </td></tr>";
+        votes.toLocaleString();
+        candidatePercent.toFixed(1);
+    }
+    return rowHTML;
+}
+
 
 
 
