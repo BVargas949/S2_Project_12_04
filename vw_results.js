@@ -27,12 +27,11 @@
 var reportHTML = "<h1>" + raceTitle + "</h1>";
 
 var totalVotes = 0;
+for (var i = 0; i <= race.length; i++) {
 
-for (var i = 0; i < race.length; i++) {
-    var totalVotes = 0;
     votes[i].forEach(calcSum);
     reportHTML += "<table><caption>" + race[i] + "</caption><tr><th>" + candidate[i] + "</th><th>" + votes[i] + "</th><tr>";
-    candidateRows(i, totalVotes);
+    candidateRows(totalVotes, i);
     reportHTML += candidateRows() + "</table>";
 };
 document.getElementsByTagName("section")[0].innerHTML = reportHTML;
@@ -49,6 +48,18 @@ function candidateRows(raceNum, totalVotes) {
         candidatePercent.toFixed(1);
     }
     return rowHTML;
+}
+
+function createBar(partyType) {
+    var barHTML = "";
+    switch (partyType) {
+        case value:
+
+            break;
+
+        default:
+            break;
+    }
 }
 
 
